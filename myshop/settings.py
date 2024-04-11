@@ -158,8 +158,10 @@ CART_SESSION_ID = 'cart'
 # you have to create an app with google to use your gmail
 # link to create an app
 # https://support.google.com/accounts/answer/185833?visit_id=638476089692203019-3502880657&p=InvalidSecondFactor&rd=1
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'bdabve@gmail.com'
-EMAIL_HOST_PASSWORD = 'wakt zyuj hztt rjme'
+import dotenv
+dotenv.load_dotenv(dotenv.find_dotenv())
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
