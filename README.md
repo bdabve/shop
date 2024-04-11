@@ -24,12 +24,12 @@ Hey there! 🛍️ Welcome to our simple online shop website, designed to suppor
 
 - Product List
   ![Alt text](./screenshots/product_list.png?raw=true "Product List")
-<br>
+
 - Product Detail
   ![Alt text](./screenshots/product_detail.png?raw=true "Product Details")
-<br>
+
 - Cart List
   ![Alt text](./screenshots/cart_list.png?raw=true "Cart List")
-<br>
+
 - Validate Order
   ![Alt text](./screenshots/validate_order.png?raw=true "Validate Order")
