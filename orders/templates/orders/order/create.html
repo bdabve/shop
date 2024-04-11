@@ -1,0 +1,63 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% load humanize %}
+
+{% block title %}{% trans "Checkout" %}{% endblock %}
+
+{% block content %}
+<div class="row my-5">
+
+    <h1>{% trans "Checkout" %}</h1>
+
+  
+    <div class="col-6">
+        <form method="post" class="order-form">
+      
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label class="col-form-label" for="{{ field.auto_id }}">{{ field.label }}</label>
+                </div>
+                <div class="col-9">
+                    {% render_field field class="form-control" %}
+                </div>
+            </div>
+            {% endfor %}
+      
+            <div class="d-grid">
+                <input class="btn btn-success" type="submit" value={% trans "Place order" %}>
+            </div>
+        </form>
+    </div> <!-- end of col-6 -->
+
+  <div class="col-2">
+      <!-- an empty div to adjust content -->
+  </div>
+
+  
+  <div class="col-4">
+      <div class="card">
+        
+          <h3 class="card-header text-center">{% trans "Your order" %}</h3>
+
+          <div class="card-body">
+              <ul class="list-group list-group-flush">
+                  {% for item in cart %}
+                  <li class="list-group-item">
+                      {{ item.quantity }} x {{ item.product.name }}
+                      <span class="fw-bold float-end">${{ item.total_price|intcomma }}</span>
+                  </li>
+                  {% endfor %}
+              </ul>
+          </div>
+        
+          <div class="card-footer">
+              <p class="m-3 fs-5 fw-bold text-end">{% trans "Total" %}: ${{ cart.get_total_price|intcomma }}</p>
+          </div>
+      </div> <!-- end of card -->
+  </div> <!-- end of col-4 -->
+
+</div>
+{% endblock %}

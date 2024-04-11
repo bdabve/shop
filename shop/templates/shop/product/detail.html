@@ -1,0 +1,52 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+{% load humanize %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="card mb-5">
+  <div class="row g-0">
+
+    <div class="col-md-4">
+      <img class="img-fluid rounded-start"
+           src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+    </div> <!-- end of col-md-4 -->
+
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title">{{ product.name|title }}</h1>
+        <h3 class="card-text ">Category: 
+          <a class="link-success link-underline-opacity-0" 
+             href="{{ product.category.get_absolute_url }}">{{ product.category }}
+          </a>
+        </h3>
+        <p class="card-text fs-2 fw-bolder fst-italic badge text-bg-danger">${{ product.price|intcomma }}</p>
+        <p class="card-text">{% trans "Add to cart" %}</p>
+
+        <form class="row g-3" action="{% url "cart:cart_add" product.id %}" method="post">
+          {% csrf_token %}
+
+          <div class="col-auto">
+              <label for="{{ cart_product_form.quantity.label }}" class="col-form-label">{% trans "Quantity" %}</label>
+          </div>
+
+          <div class="col-auto">
+              {% render_field cart_product_form.quantity class="form-select" %}
+          </div>
+
+          <div class="col-auto">
+              <input class="btn btn-success" type="submit" value="{% trans "Add to cart" %}">
+          </div>
+
+        </form>
+
+        <p class="card-text>">{{ product.description|linebreaks }}</p>
+      </div>  <!-- end of card-body -->
+    </div> <!-- End of col-md-8 -->
+
+  </div> <!-- end of row -->
+</div> <!-- end of card -->
+{% endblock %}
