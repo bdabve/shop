@@ -1,7 +1,9 @@
 # Online Shop
-This is and online shop Built With
-- Django
-- Bootstrap
+
+Hey there! 🛍️ Welcome to our simple online shop website, designed to support multiple languages. Here's what we used to build it:
+
+  - Django
+  - Bootstrap
 
 ## Installation
 - Create a new virtualenv
@@ -17,3 +19,17 @@ This is and online shop Built With
   ```bash
   python manage.py runserver
   ```
+
+## Screenshot
+
+- Product List
+  ![Alt text](./screenshots/product_list.png?raw=true "Product List")
+<br>
+- Product Detail
+  ![Alt text](./screenshots/product_detail.png?raw=true "Product Details")
+<br>
+- Cart List
+  ![Alt text](./screenshots/cart_list.png?raw=true "Cart List")
+<br>
+- Validate Order
+  ![Alt text](./screenshots/validate_order.png?raw=true "Validate Order")
