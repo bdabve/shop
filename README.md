@@ -14,6 +14,6 @@ This is and online shop Built With
   pip install requirement
   ```
 - Run
-```bash
-python manage.py runserver
-```
+  ```bash
+  python manage.py runserver
+  ```
